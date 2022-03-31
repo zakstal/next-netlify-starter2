@@ -1,3 +1,3 @@
-export default function Header({ title }) {
-  return <h1 className="title">{title}</h1>
+export default function Header({ title, className = '' }) {
+  return <h1 className={`title ${className}`}>{title}</h1>
 }

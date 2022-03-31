@@ -1,9 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&display=swap');
+
+@keyframes input-animation {
+  0% {
+    width: 0%;
+    transform: translateY(-55px);
+    padding: 10px;
+  }
+
+  30%{
+    transform: translateY(-55px);
+    width: 100%;
+    padding: 10px 20px;
+  }
+  70% {
+    transform: translateY(-55px);
+    width: 90%;
+  }
+  90% {
+    transform: translateY(10px);
+    width: 100%;
+    padding: 10px 20px;
+  }
+  100% {
+    transform: translateY(0);
+    width: 100%;
+    padding: 10px 20px;
+  }
+}
+
+@keyframes text-jump-up {
+  0%{
+    opacity: 0;
+    transform: scale(0.5) translateY(25px);
+  }
+  20% {
+    opacity: 1;
+  }
+  50%{
+    transform: translateY(-10px);
+  }
+  100%{
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+@keyframes text-transparent {
+  0%{
+    color: transparent;
+  }
+  99%{
+    /* color: #afafaf; */
+  }
+  100%{
+    color: transparent;
+    /* color: #afafaf; */
+  }
+}
+
+@keyframes fadein {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+@keyframes ripple {
+  from {
+    width: 0.1%;
+    height: 0.1%;
+    opacity: 1;
+  }
+  to {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+  }
+}
+
+
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
     Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Philosopher', sans-serif;
+  background: #C33764;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #1D2671, #C33764);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #1D2671, #C33764); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  color: #fff;
 }
 
 * {
@@ -12,11 +100,13 @@ body {
 
 main {
   padding: 5rem 0;
-  flex: 1;
+  padding-bottom: 20px;
+  /* flex: 1; */
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  font-family: 'Phi';
 }
 
 code {
@@ -28,8 +118,117 @@ code {
 
 .container {
   height: 100vh;
+  padding-bottom: 10px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  background-image: url(https://www.freepik.com/premium-vector/space-with-stars-universe-transparent-background_4459930.htm);
+}
+
+.title {
+  font-family: 'Philosopher', sans-serif;
+  color: #fff;
+  opacity: 0;
+}
+
+/* .main-input.in::placeholder {
+  animation: text-transparent 0.7s ease-out 0.7 forwards;
+} */
+
+.main-input:focus::placeholder {
+  color: #afafaf;
+  opacity: 0.3;
+  transition: all 0.3s;
+}
+.main-input::placeholder {
+  color: transparent;
+  opacity: 0;
+}
+
+.in .main-input {
+  animation: input-animation 0.7s ease-out forwards;
+}
+
+.in .title {
+  animation: text-jump-up 0.2s ease-out 0.2s forwards;
+}
+
+.in .description {
+  animation: text-jump-up 0.2s ease-out 0.3s forwards;
+}
+
+.main-input {
+  outline: none;
+  font-size: 20px;
+  margin-top: 10px;
+  /* padding: 10px 20px; */
+  border: none;
+  border-bottom: 1px solid #fff;
+  width: 100%;
+  background: transparent;
+  color: #fff;
+  width: 0%;
+  transform: translateY(-55px);
+  padding: 10px 0;
+}
+
+.description {
+  margin-top: 0;
+  font-family: 'Philosopher';
+  opacity: 0;
+}
+
+.person {
+  font-family: 'Philosopher';
+  font-size: 18px;
+  animation: fadein 0.5s forwards;
+}
+
+.person-container {
+  /* width: 100%; */
+  padding: 0 40px;
+  overflow: scroll;
+}
+
+
+.circle-container {
+  width: 10rem;
+  height: 10rem;
+  margin: 0 auto;
+  display: block;
+  position: relative;
+  /* cosmetics */
+}
+.circle-top {
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  display: block;
+  border-radius: 50%;
+  position: absolute;
+  border: 2px solid #ccc;
+  transform: translate(-50%, -50%);
+  background: rgba(100, 100, 100, 0.1);
+  animation: ripple 3s ease infinite;
+}
+
+.circle-1 {
+  animation: ripple 3s ease infinite;
+}
+
+.circle-2 {
+  animation: ripple 3s ease 0.4s infinite;
+}
+
+.circle-3 {
+  animation: ripple 3s ease 0.8s infinite;
+}
+
+.circle-4 {
+  animation: ripple 3s ease 1.2s infinite;
+}
+.circle-5 {
+  animation: ripple 3s ease 1.6s infinite;
 }
