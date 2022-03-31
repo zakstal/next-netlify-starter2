@@ -20,7 +20,7 @@ export default function Home() {
   useEffect(() => {
     setTimeout(() => {
       document.getElementById('main-input').focus();
-    }, 2000)
+    }, 4000)
   }, [])
 
   console.log('allPeople[searchTerm', allPeople[searchTerm])
