@@ -24,7 +24,7 @@ export default function Home() {
   }, [])
 
   console.log('allPeople[searchTerm', allPeople[searchTerm])
-  const tearm = (allPeople[searchTerm] || '').toLowerCase()
+  const tearm = allPeople[searchTerm?.toLowerCase()]
   return (
     <div className={`container ${state ? 'in' : ''}`}>
       <Head>
